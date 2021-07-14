@@ -1,0 +1,11 @@
+{
+  "name": "lespetitsplats",
+  "version": "1.0.0",
+  "description": "Cooking website providing recipes by multiple search criteria.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clement Benezech",
+  "license": "ISC"
+}
