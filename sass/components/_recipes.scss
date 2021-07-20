@@ -1,0 +1,76 @@
+.recipes-container {
+    width: 80vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    z-index: 0;
+    &__element {
+        width: 33%;
+        height: 40vh;
+        margin-bottom: 3vh;
+        background-color: rgb(236, 236, 236);
+        border-radius: 0.5vw;
+        display:flex;
+        flex-direction: column;
+        overflow:hidden;
+        &__image {
+            background-color: lightgrey;
+            height: 20vh;
+            width:100%;
+        }
+        &__labels-container {
+            display: flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            &__title {
+                width: 70%;
+                height: 3vh;
+                font-weight: bold;
+                margin: 0.5vw 1vw 0 1vw;;
+                
+            }
+            &__cooking-time {
+                width: 10%;
+                height: 3vh;
+                font-weight: bold;
+                margin: 0.5vw 1vw 0 1vw;
+                &::before {
+                    content: "";
+                    font-family: "Font Awesome 5 Free";
+                    margin-right: 0.5vw;
+                    font-weight: normal;
+                }
+            }
+            &__ingredients-container {
+                width: 50%;
+                height: 10vh;
+                font-size: 0.7vw;
+                &__ingredient-container {
+                    display:flex;
+                    flex-direction:row;
+                    flex-wrap: nowrap;
+                    margin: 0.5vw 1vw;
+                }
+                &__ingredient-name {
+                    font-weight: bold;
+                    margin-right: 0.5vw;
+                    &::after {
+                        content: ":";
+                        font-weight: bold;
+                    }
+                }
+                &__ingredient-quantity {
+
+                }
+            }
+            &__description {
+                width: 40%;
+                height: auto;
+                margin: 0.5vw 1vw;
+            }
+        }
+    }
+}

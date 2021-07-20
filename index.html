@@ -4,9 +4,149 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>les petits plats</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="https://kit.fontawesome.com/4966b9f0e9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    
+
+    <header class = "header">
+        <img class = "header__logo" src = "public/images/logo.png">
+    </header>
+
+    <div class = "main-search">
+        <input class = "main-search__text-input" type="text" placeholder ="Recherchez une recette, un ingrédient, un ustensile..."></input>
+        <button class = "main-search__search-button"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class = "search-tag-bar">
+        <div class = "search-tag-bar__tag search-tag-bar__tag--ingredients">Ingredient tag</div>
+        <div class = "search-tag-bar__tag search-tag-bar__tag--device">Device Tag</div>
+        <div class = "search-tag-bar__tag search-tag-bar__tag--utensils">Utensils Tag</div>
+    </div>
+
+    <div class = "search-filters__container">
+        
+        <div class = "search-filters__container__element search-filters__container__element--ingredients">
+            
+                <div class = "search-filters__search-container">
+                    <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Ingredients"></input>
+                    <button class = "search-filters__search-container__expand-arrow"><i class="fas fa-chevron-up"></i></button>            
+                </div>         
+
+            <div class = "search-filters__filters-container search-filters__filters-container--visible">
+                <div class = "search-filters__filters-container__filter">Salade</div>
+                <div class = "search-filters__filters-container__filter">Tomate</div>
+                <div class = "search-filters__filters-container__filter">Oignons</div>
+                <div class = "search-filters__filters-container__filter">Ketchup</div>
+                <div class = "search-filters__filters-container__filter">Mayo</div>
+                <div class = "search-filters__filters-container__filter">Salade</div>
+                <div class = "search-filters__filters-container__filter">Tomate</div>
+                <div class = "search-filters__filters-container__filter">Oignons</div>
+                <div class = "search-filters__filters-container__filter">Ketchup</div>
+                <div class = "search-filters__filters-container__filter">Mayo</div>
+                <div class = "search-filters__filters-container__filter">Salade</div>
+                <div class = "search-filters__filters-container__filter">Tomate</div>
+                <div class = "search-filters__filters-container__filter">Oignons</div>
+                <div class = "search-filters__filters-container__filter">Ketchup</div>
+                <div class = "search-filters__filters-container__filter">Mayo</div>
+            </div>
+        </div>
+
+        <div class = "search-filters__container__element search-filters__container__element--device">
+            
+                <div class = "search-filters__search-container">
+                    <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareils"></input>
+                    <button class = "search-filters__search-container__expand-arrow"><i class="fas fa-chevron-down"></i></button>            
+                </div>         
+                
+            <div class = "search-filters__filters-container search-filters__filters-container--hidden">
+                <div class = "search-filters__filters-container__filter">Salade</div>
+                <div class = "search-filters__filters-container__filter">Tomate</div>
+                <div class = "search-filters__filters-container__filter">Oignons</div>
+                <div class = "search-filters__filters-container__filter">Ketchup</div>
+                <div class = "search-filters__filters-container__filter">Mayo</div>
+            </div>
+        </div>
+
+        <div class = "search-filters__container__element search-filters__container__element--utensils">
+            
+            <div class = "search-filters__search-container">
+                <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Ustensiles"></input>
+                <button class = "search-filters__search-container__expand-arrow"><i class="fas fa-chevron-down"></i></button>            
+            </div>         
+            
+        <div class = "search-filters__filters-container search-filters__filters-container--hidden">
+            <div class = "search-filters__filters-container__filter">Salade</div>
+            <div class = "search-filters__filters-container__filter">Tomate</div>
+            <div class = "search-filters__filters-container__filter">Oignons</div>
+            <div class = "search-filters__filters-container__filter">Ketchup</div>
+            <div class = "search-filters__filters-container__filter">Mayo</div>
+        </div>
+    </div>
+    </div>
+
+    <section class = "recipes-container">
+
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+            <div class = "recipes-container__element__image"></div>
+            <div class = "recipes-container__element__labels-container">
+                <div class = "recipes-container__element__labels-container__title">Poulet au camembert et fraises tagada</div>
+                <div class = "recipes-container__element__labels-container__cooking-time">32 </div>
+
+                <div class = "recipes-container__element__labels-container__ingredients-container">
+                    <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-container">
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-name">Fraises Tagada</div>
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-quantity">150 g</div>
+                    </div>
+                    <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-container">
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-name">Camembert au lait cru</div>
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-quantity">250 g</div> 
+                    </div>
+                    <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-container">
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-name">Filets de Poulet</div>
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-quantity">500 g</div>
+                    </div>
+                    <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-container"> 
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-name">Huile d'olive</div>
+                        <div class = "recipes-container__element__labels-container__ingredients-container__ingredient-quantity">3 cas</div>
+                    </div>
+                </div>
+                <div class = "recipes-container__element__labels-container__description">Tout mélanger, mettre au four. C'est pas super bon mais franchement ça passe avec un peu de nutella</div>
+            </div>
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+
+        <article class = "recipes-container__element">
+
+        </article>
+    </section>
 </body>
 </html>

@@ -1,0 +1,23 @@
+.main-search {
+    width: 80vw;
+    height: 5vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 1vh;
+    background-color: $color-search-bar;
+
+    &__text-input {
+        width: 93%;
+        outline: none;
+        border:none;
+        background-color: transparent;
+        padding-left: 5%;
+        box-sizing: border-box;
+    }
+    &__search-button {
+        width: 7%;
+        border: none;
+        background-color: transparent;
+    }
+}

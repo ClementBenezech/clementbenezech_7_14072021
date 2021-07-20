@@ -1,0 +1,11 @@
+@mixin filter-modifiers{
+    &--ingredients {
+        background-color: $color-menu-ingredients;
+    }
+    &--utensils {
+        background-color: $color-menu-utensils;
+    }
+    &--device {
+        background-color: $color-menu-device;
+    }
+}

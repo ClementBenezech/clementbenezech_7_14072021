@@ -1,0 +1,21 @@
+.search-tag-bar {
+    width: 80vw;
+    display: flex;
+    flex-direction:row;
+    padding: 1vw 0;
+    &__tag {
+        @include filter-modifiers;
+        margin-right: 1vw;
+        padding: 1vw;
+        border-radius: 0.3vw;
+        color: white;
+        font-weight: bold;
+        
+        &::after {
+            content: "";
+            font-family: "Font Awesome 5 Free";
+            margin-left: 1vw;
+            font-weight: normal;
+        }
+    }
+}
