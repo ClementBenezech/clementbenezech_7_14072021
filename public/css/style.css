@@ -150,7 +150,7 @@ body {
   background-color: lightgrey;
   height: 15vw;
   width: 100%;
-  content: url("/public/images/genericfood.jpg");
+  content: url("../images/genericfood.jpg");
 }
 .recipes-container__element__labels-container {
   display: flex;
