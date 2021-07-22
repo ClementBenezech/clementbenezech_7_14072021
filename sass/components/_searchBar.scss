@@ -1,6 +1,6 @@
 .main-search {
     width: 80vw;
-    height: 5vh;
+    height: 8vh;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,12 +12,14 @@
         outline: none;
         border:none;
         background-color: transparent;
-        padding-left: 5%;
+        padding-left: 1%;
         box-sizing: border-box;
+        font-size: 5vh
     }
     &__search-button {
         width: 7%;
         border: none;
         background-color: transparent;
+        font-size: 5vh;
     }
 }

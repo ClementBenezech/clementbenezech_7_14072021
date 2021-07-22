@@ -62,6 +62,29 @@
                 border: none;
                 color:white;
                 font-weight: bold;
+                &--visible {
+                    display:block;
+                }
+                &--hidden {
+                    display:none;
+                }
+            }
+            &__shrink-arrow {
+                width: 10%;
+                height: 5vh;
+                background-color: red;
+                background-color:transparent;
+                outline: none;
+                border: none;
+                color:white;
+                font-weight: bold;
+                &--visible {
+                    display:block;
+                }
+                &--hidden {
+                    display:none;
+                }
+                
             }
         }
 }

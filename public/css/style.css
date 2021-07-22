@@ -9,7 +9,7 @@ body {
 
 .main-search {
   width: 80vw;
-  height: 5vh;
+  height: 8vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,13 +21,15 @@ body {
   outline: none;
   border: none;
   background-color: transparent;
-  padding-left: 5%;
+  padding-left: 1%;
   box-sizing: border-box;
+  font-size: 5vh;
 }
 .main-search__search-button {
   width: 7%;
   border: none;
   background-color: transparent;
+  font-size: 5vh;
 }
 
 .search-filters__container {
@@ -99,6 +101,28 @@ body {
   color: white;
   font-weight: bold;
 }
+.search-filters__search-container__expand-arrow--visible {
+  display: block;
+}
+.search-filters__search-container__expand-arrow--hidden {
+  display: none;
+}
+.search-filters__search-container__shrink-arrow {
+  width: 10%;
+  height: 5vh;
+  background-color: red;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+.search-filters__search-container__shrink-arrow--visible {
+  display: block;
+}
+.search-filters__search-container__shrink-arrow--hidden {
+  display: none;
+}
 
 .recipes-container {
   width: 80vw;
@@ -107,38 +131,42 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: flex-start;
+  align-items: flex-start;
   z-index: 0;
 }
 .recipes-container__element {
-  width: 33%;
-  height: 40vh;
+  width: 25vw;
+  height: 30vw;
   margin-bottom: 3vh;
   background-color: #ececec;
   border-radius: 0.5vw;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   overflow: hidden;
+  align-content: flex-start;
 }
 .recipes-container__element__image {
   background-color: lightgrey;
-  height: 20vh;
+  height: 15vw;
   width: 100%;
+  content: url("/public/images/genericfood.jpg");
 }
 .recipes-container__element__labels-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
+  height: 3vw;
 }
 .recipes-container__element__labels-container__title {
-  width: 70%;
-  height: 3vh;
+  width: 90%;
+  height: 3vw;
   font-weight: bold;
-  margin: 0.5vw 1vw 0 1vw;
+  margin: 0.5vw 1vw 0 0.5vw;
 }
 .recipes-container__element__labels-container__cooking-time {
   width: 10%;
-  height: 3vh;
+  height: 3vw;
   font-weight: bold;
   margin: 0.5vw 1vw 0 1vw;
 }
@@ -149,27 +177,29 @@ body {
   font-weight: normal;
 }
 .recipes-container__element__labels-container__ingredients-container {
-  width: 50%;
-  height: 10vh;
+  width: 55%;
   font-size: 0.7vw;
+  height: 5vh;
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 0.5vw 1vw;
+  margin: 0.3vw 0.3vw;
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name {
   font-weight: bold;
   margin-right: 0.5vw;
+  height: 1vh;
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name::after {
   content: ":";
   font-weight: bold;
 }
 .recipes-container__element__labels-container__description {
-  width: 40%;
-  height: auto;
+  width: 35%;
+  height: 10vw;
+  overflow: hidden;
   margin: 0.5vw 1vw;
 }
 

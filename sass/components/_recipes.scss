@@ -5,36 +5,43 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: flex-start;
+    align-items:flex-start;
+
     z-index: 0;
     &__element {
-        width: 33%;
-        height: 40vh;
+        width: 25vw;
+        height: 30vw;
         margin-bottom: 3vh;
         background-color: rgb(236, 236, 236);
         border-radius: 0.5vw;
         display:flex;
-        flex-direction: column;
+        flex-wrap:wrap;
+        flex-direction: row;
         overflow:hidden;
+        align-content: flex-start;
+
+
         &__image {
             background-color: lightgrey;
-            height: 20vh;
+            height: 15vw;
             width:100%;
+            content: url("/public/images/genericfood.jpg");
         }
         &__labels-container {
             display: flex;
             flex-direction:row;
-            flex-wrap:wrap;
+            width: 100%;
+            height: 3vw;
             &__title {
-                width: 70%;
-                height: 3vh;
+                width:90%;
+                height: 3vw;
                 font-weight: bold;
-                margin: 0.5vw 1vw 0 1vw;;
+                margin: 0.5vw 1vw 0 0.5vw;
                 
             }
             &__cooking-time {
                 width: 10%;
-                height: 3vh;
+                height: 3vw;
                 font-weight: bold;
                 margin: 0.5vw 1vw 0 1vw;
                 &::before {
@@ -45,18 +52,20 @@
                 }
             }
             &__ingredients-container {
-                width: 50%;
-                height: 10vh;
+                width: 55%;
                 font-size: 0.7vw;
+                height: 5vh;
                 &__ingredient-container {
                     display:flex;
                     flex-direction:row;
                     flex-wrap: nowrap;
-                    margin: 0.5vw 1vw;
+                    margin: 0.3vw 0.3vw;
+                    
                 }
                 &__ingredient-name {
                     font-weight: bold;
                     margin-right: 0.5vw;
+                    height: 1vh;
                     &::after {
                         content: ":";
                         font-weight: bold;
@@ -67,8 +76,9 @@
                 }
             }
             &__description {
-                width: 40%;
-                height: auto;
+                width: 35%;
+                height: 10vw;
+                overflow:hidden;
                 margin: 0.5vw 1vw;
             }
         }
