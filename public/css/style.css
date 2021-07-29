@@ -16,6 +16,12 @@ body {
   border-radius: 1vh;
   background-color: #e6e6e6;
 }
+@media screen and (max-width: 1080px) {
+  .main-search {
+    height: 4vh;
+    margin-bottom: 1vh;
+  }
+}
 .main-search__text-input {
   width: 93%;
   outline: none;
@@ -25,11 +31,21 @@ body {
   box-sizing: border-box;
   font-size: 5vh;
 }
+@media screen and (max-width: 1080px) {
+  .main-search__text-input {
+    font-size: 1.7vh;
+  }
+}
 .main-search__search-button {
   width: 7%;
   border: none;
   background-color: transparent;
   font-size: 5vh;
+}
+@media screen and (max-width: 1080px) {
+  .main-search__search-button {
+    font-size: 2vh;
+  }
 }
 
 .search-filters__container {
@@ -41,6 +57,15 @@ body {
   justify-content: flex-start;
   overflow: visible;
   z-index: 1;
+}
+@media screen and (max-width: 1080px) {
+  .search-filters__container {
+    flex-wrap: wrap;
+    width: 80vw;
+    height: max-content;
+    margin-bottom: 5vh;
+    margin-top: 1vh;
+  }
 }
 .search-filters__container__element {
   height: max-content;
@@ -56,10 +81,23 @@ body {
 .search-filters__container__element--device {
   background-color: #68d9a4;
 }
+@media screen and (max-width: 1080px) {
+  .search-filters__container__element {
+    width: 90vw;
+    border-radius: 0;
+    margin-right: 0vw;
+  }
+}
 .search-filters__filters-container {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  width: 80vw;
+}
+@media screen and (max-width: 1080px) {
+  .search-filters__filters-container {
+    width: 90vw;
+  }
 }
 .search-filters__filters-container__filter {
   width: 33%;
@@ -68,9 +106,23 @@ body {
   color: white;
   font-size: 1.2vw;
 }
+@media screen and (max-width: 1080px) {
+  .search-filters__filters-container__filter {
+    font-size: 2vh;
+    width: max-content;
+    border: 1px solid white;
+    margin: 0.5vh;
+    border-radius: 0.3vh;
+  }
+}
 .search-filters__filters-container--visible {
   display: flex;
   width: 40vw;
+}
+@media screen and (max-width: 1080px) {
+  .search-filters__filters-container--visible {
+    width: 100%;
+  }
 }
 .search-filters__filters-container--hidden {
   display: none;
@@ -134,6 +186,11 @@ body {
   align-items: flex-start;
   z-index: 0;
 }
+@media screen and (max-width: 1080px) {
+  .recipes-container {
+    flex-direction: column;
+  }
+}
 .recipes-container__element {
   width: 25vw;
   height: 30vw;
@@ -146,11 +203,23 @@ body {
   overflow: hidden;
   align-content: flex-start;
 }
+@media screen and (max-width: 1080px) {
+  .recipes-container__element {
+    width: 80vw;
+    height: max-content;
+  }
+}
 .recipes-container__element__image {
   background-color: lightgrey;
   height: 15vw;
   width: 100%;
   content: url("../images/genericfood.jpg");
+  object-fit: cover;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__image {
+    height: 30vh;
+  }
 }
 .recipes-container__element__labels-container {
   display: flex;
@@ -158,17 +227,39 @@ body {
   width: 100%;
   height: 3vw;
 }
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container {
+    height: 10vh;
+    background-color: black;
+    align-items: center;
+  }
+}
 .recipes-container__element__labels-container__title {
-  width: 90%;
+  width: 80%;
   height: 3vw;
   font-weight: bold;
   margin: 0.5vw 1vw 0 0.5vw;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__title {
+    font-size: 3vh;
+    color: white;
+    text-align: center;
+    height: auto;
+  }
 }
 .recipes-container__element__labels-container__cooking-time {
   width: 10%;
   height: 3vw;
   font-weight: bold;
   margin: 0.5vw 1vw 0 1vw;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__cooking-time {
+    font-size: 3vh;
+    color: white;
+    height: auto;
+  }
 }
 .recipes-container__element__labels-container__cooking-time::before {
   content: "";
@@ -181,27 +272,65 @@ body {
   font-size: 0.7vw;
   height: 5vh;
 }
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__ingredients-container {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-around;
+    margin: 1vh;
+  }
+}
 .recipes-container__element__labels-container__ingredients-container__ingredient-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 0.3vw 0.3vw;
-  height: 3vh;
+  height: 2vw;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__ingredients-container__ingredient-container {
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.671);
+    padding: 0.2vh;
+    height: 3vh;
+    padding: 1vh;
+    margin: 0.3vw 0.3vw;
+  }
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name {
   font-weight: bold;
   margin-right: 0.5vw;
-  height: 1vh;
+  padding-right: 1vh;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__ingredients-container__ingredient-name {
+    font-size: 2vh;
+    height: 1vh;
+  }
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name::after {
   /*content: ":";
   font-weight: bold;*/
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__ingredients-container__ingredient-quantity {
+    font-size: 2vh;
+    color: black;
+  }
 }
 .recipes-container__element__labels-container__description {
   width: 35%;
   height: 10vw;
   overflow: hidden;
   margin: 0.5vw 1vw;
+}
+@media screen and (max-width: 1080px) {
+  .recipes-container__element__labels-container__description {
+    width: 80vw;
+    height: 40%;
+  }
 }
 
 .search-tag-bar {

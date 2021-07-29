@@ -6,6 +6,10 @@
     justify-content: space-between;
     border-radius: 1vh;
     background-color: $color-search-bar;
+    @include mobile-only {
+        height: 4vh;
+        margin-bottom: 1vh;
+    }
 
     &__text-input {
         width: 93%;
@@ -14,12 +18,18 @@
         background-color: transparent;
         padding-left: 1%;
         box-sizing: border-box;
-        font-size: 5vh
+        font-size: 5vh;
+        @include mobile-only {
+            font-size:1.7vh;
+        }
     }
     &__search-button {
         width: 7%;
         border: none;
         background-color: transparent;
         font-size: 5vh;
+        @include mobile-only {
+            font-size:2vh;
+        }
     }
 }
