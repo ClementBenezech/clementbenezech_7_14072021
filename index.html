@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="public/script/recipesData.js"></script>
+    <script src="public/script/functions.js"></script>
     <script src="public/script/Recipe.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -24,18 +26,16 @@
         <button class = "main-search__search-button"><i class="fas fa-search"></i></button>
     </div>
 
-    <div class = "search-tag-bar">
-        <div class = "search-tag-bar__tag search-tag-bar__tag--ingredients">Ingredient tag</div>
-        <div class = "search-tag-bar__tag search-tag-bar__tag--device">Device Tag</div>
-        <div class = "search-tag-bar__tag search-tag-bar__tag--utensils">Utensils Tag</div>
+    <div id ="search_tag_bar" class = "search-tag-bar">
+
     </div>
 
     <div class = "search-filters__container">
         
         <div class = "search-filters__container__element search-filters__container__element--ingredients">
             
-                <div class = "search-filters__search-container">
-                    <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Ingredients"></input>
+                <div  class = "search-filters__search-container">
+                    <input id = "main-search-filter_ingredients" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ingredients"></input>
                     <button id = "expand_ingredients_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
                     <button id = "shrink_ingredients_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
                 </div>         
@@ -49,9 +49,10 @@
         <div class = "search-filters__container__element search-filters__container__element--device">
             
                 <div class = "search-filters__search-container">
-                    <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareil"></input>
-                    <button class = "search-filters__search-container__expand-arrow"><i class="fas fa-chevron-up"></i></button>            
-                </div>         
+                    <input id = "main-search-filter_device" class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareil"></input>
+                    <button id = "expand_device_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
+                    <button id = "shrink_device_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
+                </div>    
 
                 <div id = "search-filters__filters-container__device" class = "search-filters__filters-container search-filters__filters-container--hidden">
             </div>
@@ -60,9 +61,10 @@
         <div class = "search-filters__container__element search-filters__container__element--utensils">
             
                 <div class = "search-filters__search-container">
-                    <input class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareil"></input>
-                    <button class = "search-filters__search-container__expand-arrow"><i class="fas fa-chevron-up"></i></button>            
-                </div>         
+                    <input id = "main-search-filter_utensils" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ustensiles"></input>
+                    <button id = "expand_utensils_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
+                    <button id = "shrink_utensils_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
+                </div>     
 
                 <div id = "search-filters__filters-container__utensils" class = "search-filters__filters-container search-filters__filters-container--hidden">
             </div>

@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items:flex-start;
 
     z-index: 0;
@@ -60,6 +60,7 @@
                     flex-direction:row;
                     flex-wrap: nowrap;
                     margin: 0.3vw 0.3vw;
+                    height:3vh;
                     
                 }
                 &__ingredient-name {
@@ -67,8 +68,8 @@
                     margin-right: 0.5vw;
                     height: 1vh;
                     &::after {
-                        content: ":";
-                        font-weight: bold;
+                        /*content: ":";
+                        font-weight: bold;*/
                     }
                 }
                 &__ingredient-quantity {

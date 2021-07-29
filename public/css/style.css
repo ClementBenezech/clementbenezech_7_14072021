@@ -130,7 +130,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   z-index: 0;
 }
@@ -186,6 +186,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   margin: 0.3vw 0.3vw;
+  height: 3vh;
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name {
   font-weight: bold;
@@ -193,8 +194,8 @@ body {
   height: 1vh;
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name::after {
-  content: ":";
-  font-weight: bold;
+  /*content: ":";
+  font-weight: bold;*/
 }
 .recipes-container__element__labels-container__description {
   width: 35%;
@@ -230,6 +231,24 @@ body {
   font-family: "Font Awesome 5 Free";
   margin-left: 1vw;
   font-weight: normal;
+}
+
+.no-match-found__container {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-match-found__icon {
+  font-size: 10vh;
+  color: lightgrey;
+  margin-top: 8vh;
+}
+.no-match-found__message {
+  color: lightgrey;
+  padding-top: 2vh;
+  font-size: 3vh;
 }
 
 .header {

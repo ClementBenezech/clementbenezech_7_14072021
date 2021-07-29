@@ -8,12 +8,12 @@ function createRecipe (recipeData) {
         time: recipeData.time,
         ingredients: recipeData.ingredients,
         appliance: recipeData.appliance,
-        utensils: recipeData.utensils,
-        positiveSearchResult: false,
+        utensils: recipeData.ustensils,
+        positiveSearchResult: true,
         searchInTitle: function (whatYoureLookingFor) {
             //Looking for main search input in the title
             
-            if (this.name.toLowerCase().includes(whatYoureLookingFor.toLowerCase())) {
+            if (replaceDiacritics(this.name.toLowerCase()).includes(replaceDiacritics(whatYoureLookingFor.toLowerCase()))) {
                 return true;
             }
             return false;
@@ -21,7 +21,7 @@ function createRecipe (recipeData) {
 
         searchInDescription: function (whatYoureLookingFor) {
             //Looking for main search input in the description
-            if (this.description.toLowerCase().includes(whatYoureLookingFor.toLowerCase())) {
+            if (replaceDiacritics(this.description.toLowerCase()).includes(replaceDiacritics(whatYoureLookingFor.toLowerCase()))) {
                 return true;
             }
             return false;
@@ -89,10 +89,12 @@ function createRecipe (recipeData) {
                 //Creating the ingredient quantity label
                 ingredientQuantity = document.createElement("div");
                 if (element.unit != undefined) {
-                    ingredientQuantity.innerHTML = element.quantity+" "+element.unit;
-                }
-                else {
-                    ingredientQuantity.innerHTML = element.quantity;
+                    if (element.quantity != undefined) {
+                        ingredientQuantity.innerHTML = element.quantity+" "+element.unit;
+                    }
+                    else {
+                        ingredientQuantity.innerHTML = element.unit
+                    }       
                 }
                 
                 ingredientQuantity.className = "recipes-container__element__labels-container__ingredients-container__ingredient-quantity";
