@@ -5,7 +5,7 @@ function generateUniqueIngredientsFilters() {
         globalRecipeCollection.forEach(currentRecipe => {
             if (currentRecipe.positiveSearchResult == true) {        
                     currentRecipe.ingredients.forEach (element => {
-                        normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_ingredients").value);
+                        normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_ingredients").value).toLowerCase();
                         if ((normalizedSearchQuery != undefined) && (replaceDiacritics(element.ingredient.toLowerCase()).includes(normalizedSearchQuery))) {
                         currentIngredientsFilters.push(element.ingredient.toLowerCase());
                         uniqueIngredientsFilters = [...new Set(currentIngredientsFilters)];
@@ -21,7 +21,7 @@ function generateUniqueDeviceFilters() {
     currentDeviceFilters = [];
         globalRecipeCollection.forEach(currentRecipe => {
             if (currentRecipe.positiveSearchResult == true) {
-                normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_device").value);
+                normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_device").value).toLowerCase();
                 if ((normalizedSearchQuery != undefined) && (replaceDiacritics(currentRecipe.appliance.toLowerCase()).includes(normalizedSearchQuery))) {
                     currentDeviceFilters.push(currentRecipe.appliance.toLowerCase());
                     uniqueDeviceFilters = [...new Set(currentDeviceFilters)];
@@ -38,7 +38,7 @@ function generateUniqueUtensilsFilters() {
             if (currentRecipe.positiveSearchResult == true) {
                 if (currentRecipe.utensils != undefined && currentRecipe.utensils != false ) {
                     currentRecipe.utensils.forEach(element => {
-                        normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_utensils").value);
+                        normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_utensils").value).toLowerCase();
                         if ((normalizedSearchQuery != undefined) && (replaceDiacritics(element.toLowerCase()).includes(normalizedSearchQuery))) {
                             currentUtensilsFilters.push(element.toLowerCase());
                             uniqueUtensilsFilters = [...new Set(currentUtensilsFilters)];
