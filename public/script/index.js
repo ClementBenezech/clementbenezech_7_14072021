@@ -1,5 +1,6 @@
 //Creating Global Recipe Collection and page context variables
 const globalRecipeCollection = [];
+
 var currentIngredientsFilters = [];
 var currentDeviceFilters = [];
 var currentUtensilsFilters = [];
@@ -15,6 +16,11 @@ recipes.forEach(element => {
     currentRecipe = createRecipe(element);
     globalRecipeCollection.push(currentRecipe);
 })
+
+/*Algo_V2*/
+const notFoundRecipeCollection = globalRecipeCollection;
+const foundRecipeCollection = [];
+/*End of modification*/
 
 console.log(replaceDiacritics("éEàèIî"));
 

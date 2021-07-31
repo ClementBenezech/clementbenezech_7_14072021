@@ -14,7 +14,7 @@ Modify markAsNegativeResult() and markAsPositiveResult() so it cuts a recipe fro
 function generateUniqueIngredientsFilters() {
         //Clearing the content of the recipe grid.
         currentIngredientsFilters = [];
-        globalRecipeCollection.forEach(currentRecipe => {
+        foundRecipeCollection.forEach(currentRecipe => {
             if (currentRecipe.positiveSearchResult == true) {        
                     currentRecipe.ingredients.forEach (element => {
                         normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_ingredients").value).toLowerCase();
@@ -31,7 +31,7 @@ function generateUniqueIngredientsFilters() {
 //Update the list of Devices filters matching current result set
 function generateUniqueDeviceFilters() {
     currentDeviceFilters = [];
-        globalRecipeCollection.forEach(currentRecipe => {
+        foundRecipeCollection.forEach(currentRecipe => {
             if (currentRecipe.positiveSearchResult == true) {
                 normalizedSearchQuery = replaceDiacritics(document.getElementById("main-search-filter_device").value).toLowerCase();
                 if ((normalizedSearchQuery != undefined) && (replaceDiacritics(currentRecipe.appliance.toLowerCase()).includes(normalizedSearchQuery))) {
@@ -46,7 +46,7 @@ function generateUniqueDeviceFilters() {
 //Upadate the list of utensils filters matching current result set
 function generateUniqueUtensilsFilters() {
     currentUtensilsFilters = [];
-        globalRecipeCollection.forEach(currentRecipe => {
+        foundRecipeCollection.forEach(currentRecipe => {
             if (currentRecipe.positiveSearchResult == true) {
                 if (currentRecipe.utensils != undefined && currentRecipe.utensils != false ) {
                     currentRecipe.utensils.forEach(element => {
@@ -228,7 +228,7 @@ function addAdvancedSearchEventListener(filterType) {
 
 
 function updateDisplayedRecipesByUtensils(filter) {
-    globalRecipeCollection.forEach( recipe => {
+    foundRecipeCollection.forEach( recipe => {
         //Checking if recipe is displayed
         let found = false;
         if (recipe.positiveSearchResult == true) {
@@ -250,7 +250,7 @@ function updateDisplayedRecipesByUtensils(filter) {
 }
 
 function updateDisplayedRecipesByIngredients(filter) {
-    globalRecipeCollection.forEach( recipe => {
+    foundRecipeCollection.forEach( recipe => {
         //Checking if recipe is displayed
         let found = false;
         if (recipe.positiveSearchResult == true) {
@@ -273,7 +273,7 @@ function updateDisplayedRecipesByIngredients(filter) {
 }
 
 function updateDisplayedRecipesByDevice(filter) {
-    globalRecipeCollection.forEach( recipe => {
+    foundRecipeCollection.forEach( recipe => {
         //Checking if recipe is displayed
         let found = false;
         if (recipe.positiveSearchResult == true) {
@@ -326,7 +326,7 @@ function executeMainSearch () {
 
       */
 
-      globalRecipeCollection.forEach(currentRecipe => {
+      notFoundRecipeCollection.forEach(currentRecipe => {
           currentRecipe.markAsNegativeResult();
           //checking for a match in title
           if (currentRecipe.searchInTitle(searchQuery) == true) {
@@ -393,8 +393,8 @@ function renderRecipeGrid(){
 
     //emptying the grid.
     document.getElementById("recipes-container").innerHTML = "";
-    let matchingResults = false
-    globalRecipeCollection.forEach(recipe => {
+    let matchingResults = false;
+    notFoundRecipeCollection.forEach(recipe => {
         if (recipe.positiveSearchResult == true) {
         recipe.addToGrid();
         matchingResults = true;
