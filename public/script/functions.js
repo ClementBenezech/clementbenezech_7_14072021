@@ -1,3 +1,15 @@
+/*Algo V2 things to do
+
+initialize notfoundRecipeCollection with globalRecipeCollection.
+
+replace all display globalRecipeCollection references by:
+    foundRecipeCollection for display.
+    notfoundRecipeCollection for search
+
+Modify markAsNegativeResult() and markAsPositiveResult() so it cuts a recipe from one of the collections, and insert into another.
+
+*/
+
 //Upadate the list of ingredient filters matching current result set
 function generateUniqueIngredientsFilters() {
         //Clearing the content of the recipe grid.
@@ -300,6 +312,20 @@ function executeMainSearch () {
       document.getElementById("recipes-container").innerHTML = "";
 
       //Checking each recipe in the collection for a match
+      
+      /*Algo V2.
+
+      -------> Search all recipe.title in globalRecipeCOllection[]
+      Create 2 subset of recipes: foundRecipeCollection[] and notFoundRecipeCollection[]
+
+      -------> Search notFoundRecipeCollection[] in recipe.tags
+      Cut found results from notfoundRecipeCollection[] and insert in foundRecipeCollection[]
+
+      -------> Search notFoundRecipeCollection[] in recipe.description
+      Cut found results from notfoundRecipeCollection[] and insert in foundRecipeCollection[]
+
+      */
+
       globalRecipeCollection.forEach(currentRecipe => {
           currentRecipe.markAsNegativeResult();
           //checking for a match in title

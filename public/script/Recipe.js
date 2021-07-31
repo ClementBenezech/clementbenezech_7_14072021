@@ -106,9 +106,13 @@ function createRecipe (recipeData) {
         },
         markAsPositiveResult: function () {
             this.positiveSearchResult = true;
+            //algo V2
+            //Cut From notFound, put in found
         },
         markAsNegativeResult: function () {
             this.positiveSearchResult = false;
+            //algo V2
+            //Cut From foundCollection, put in notFoundCollection
         },
     }
 }
