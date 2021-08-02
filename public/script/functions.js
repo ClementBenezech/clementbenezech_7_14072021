@@ -76,6 +76,9 @@ function createActiveFilterInDOM(filter, filterType) {
         applyAllAdvancedSearchFilters();
         recalculateAdvancedSearchTags();
         renderRecipeGrid();
+        console.log("remaining active filters");
+        console.log(activeIngredientsFilters);
+
     })
     document.getElementById("search_tag_bar").appendChild(newActiveFilter);
     return newActiveFilter;
@@ -93,12 +96,10 @@ function generateIngredientsFiltersInDOM() {
             newFilter.addEventListener("click", () => {
                 if (activeIngredientsFilters.find(element => element == filter) == undefined) {
                     activeIngredientsFilters.push(filter);
-
                     newActiveFilter = createActiveFilterInDOM(filter, "ingredients");
-    
-                    
                 };
                 document.getElementById("main-search-filter_ingredients").value = "";
+
                 updateDisplayedRecipesByIngredients(filter);
                 recalculateAdvancedSearchTags();
                 renderRecipeGrid();
@@ -124,6 +125,7 @@ function generateDeviceFiltersInDOM() {
 
                 }
                 document.getElementById("main-search-filter_device").value = "";
+
                 updateDisplayedRecipesByDevice(filter);
                 recalculateAdvancedSearchTags();
                 renderRecipeGrid();
@@ -149,6 +151,7 @@ function generateUtensilsFiltersInDOM() {
 
                 }
                 document.getElementById("main-search-filter_utensils").value = "";
+
                 updateDisplayedRecipesByUtensils(filter);
                 recalculateAdvancedSearchTags();
                 renderRecipeGrid();
@@ -228,18 +231,19 @@ function addAdvancedSearchEventListener(filterType) {
 
 
 function updateDisplayedRecipesByUtensils(filter) {
-    foundRecipeCollection.forEach( recipe => {
-        //Checking if recipe is displayed
+
+    currentRecipeCollection = foundRecipeCollection.slice();
+
+    currentRecipeCollection.forEach( recipe => {
         let found = false;
-        if (recipe.positiveSearchResult == true) {
-            //If recipe is displayed, try to find the required filter in its properties
+        //try to find the required filter in recipe properties
             recipe.utensils.forEach( utensil => {
                 if (utensil.toLowerCase() == filter) {
                     //If filter is found in recipe, set a flag to true
                     found = true;
                 }
             })    
-        }
+
         //If found flag is true
         if (found == false) {
             //mark recipe as 'not displayed'
@@ -250,40 +254,45 @@ function updateDisplayedRecipesByUtensils(filter) {
 }
 
 function updateDisplayedRecipesByIngredients(filter) {
-    foundRecipeCollection.forEach( recipe => {
-        //Checking if recipe is displayed
+    
+    currentRecipeCollection = foundRecipeCollection.slice();
+
+    currentRecipeCollection.forEach( recipe => {
         let found = false;
-        if (recipe.positiveSearchResult == true) {
             //If recipe is displayed, try to find the required filter in its properties
             recipe.ingredients.forEach( ingredient => {
-
                 if (ingredient.ingredient.toLowerCase() == filter) {
                     //If filter is found in recipe, set a flag to true
                     found = true;
                 }
             })    
-        }
-        //If found flag is true
+        //If found flag is false
         if (found == false) {
             //mark recipe as 'not displayed'
-            recipe.markAsNegativeResult();
+                recipe.markAsNegativeResult();
+                console.log("NEGATIVE");
+                console.log(foundRecipeCollection);
+
+        }
+        else {
+            console.log("POSITIVE");
 
         }
     })
 }
 
 function updateDisplayedRecipesByDevice(filter) {
-    foundRecipeCollection.forEach( recipe => {
-        //Checking if recipe is displayed
+
+    currentRecipeCollection = foundRecipeCollection.slice();
+
+    currentRecipeCollection.forEach( recipe => {
         let found = false;
-        if (recipe.positiveSearchResult == true) {
             //If recipe is displayed, try to find the required filter in its properties
             if (recipe.appliance.toLowerCase() == filter) {
 
                     //If filter is found in recipe, set a flag to true
                     found = true;
             }
-        }
         //If found flag is true
         if (found == false) {
             //mark recipe as 'not displayed'
@@ -307,47 +316,28 @@ function deleteActiveFilter(filter) {
 //Will run main search algorithm
 function executeMainSearch () {
 
-    let searchQuery = document.getElementById("main-search__text-input").value;
-      //emptying the grid.
-      document.getElementById("recipes-container").innerHTML = "";
+     //retrieving user input
+     let searchQuery = document.getElementById("main-search__text-input").value;
+     //If the Keyword is at least 3 characters long
+     if (searchQuery.length > 2){      
+        let searchQuery = document.getElementById("main-search__text-input").value;
+        //emptying the grid.
+        document.getElementById("recipes-container").innerHTML = "";
+  
+        notFoundRecipeCollection = [];
+        foundRecipeCollection = [];
+  
+        checkInTitles(searchQuery);
+        checkInIngredients(searchQuery);
+        checkInDescriptions(searchQuery);           
+     }
+     else {
+         foundRecipeCollection = globalRecipeCollection.slice();
+     }
 
-      //Checking each recipe in the collection for a match
-      
-      /*Algo V2.
 
-      -------> Search all recipe.title in globalRecipeCOllection[]
-      Create 2 subset of recipes: foundRecipeCollection[] and notFoundRecipeCollection[]
+        
 
-      -------> Search notFoundRecipeCollection[] in recipe.tags
-      Cut found results from notfoundRecipeCollection[] and insert in foundRecipeCollection[]
-
-      -------> Search notFoundRecipeCollection[] in recipe.description
-      Cut found results from notfoundRecipeCollection[] and insert in foundRecipeCollection[]
-
-      */
-
-      notFoundRecipeCollection.forEach(currentRecipe => {
-          currentRecipe.markAsNegativeResult();
-          //checking for a match in title
-          if (currentRecipe.searchInTitle(searchQuery) == true) {
-              //Add the recipe to DOM
-              //currentRecipe.addToGrid();
-              currentRecipe.markAsPositiveResult();
-          }
-          //checking for a match in ingredients
-          else if (currentRecipe.searchInIngredients(searchQuery) == true) {
-              //Add the recipe to DOM
-              //currentRecipe.addToGrid();
-              currentRecipe.markAsPositiveResult();
-          }
-          //checking for a match in description
-          else if (currentRecipe.searchInDescription(searchQuery) == true) {
-              //Add the recipe to DOM
-              //currentRecipe.addToGrid();
-              currentRecipe.markAsPositiveResult();
-          }
-          
-        })
 }
 
 //Will restrict the search results dataset to recipes matching the advanced search filters
@@ -394,7 +384,7 @@ function renderRecipeGrid(){
     //emptying the grid.
     document.getElementById("recipes-container").innerHTML = "";
     let matchingResults = false;
-    notFoundRecipeCollection.forEach(recipe => {
+    foundRecipeCollection.forEach(recipe => {
         if (recipe.positiveSearchResult == true) {
         recipe.addToGrid();
         matchingResults = true;
@@ -432,5 +422,40 @@ function replaceDiacritics(str){
   
     return str;
   };
+
+function checkInTitles (searchQuery) {
+
+    globalRecipeCollection.forEach(currentRecipe => {
+        //checking for a match in title
+        if (currentRecipe.searchInTitle(searchQuery) == true) {
+            currentRecipe.markAsPositiveResult();
+        }
+        else {
+            currentRecipe.markAsNegativeResult();
+          }
+      })
+
+}
+
+function checkInIngredients (searchQuery) {
+    notFoundRecipeCollection.forEach(currentRecipe => {
+        //checking for a match in ingredients
+        if (currentRecipe.searchInIngredients(searchQuery) == true) {
+            currentRecipe.markAsPositiveResult();
+        }
+        })
+
+
+}
+
+function checkInDescriptions (searchQuery) {
+    notFoundRecipeCollection.forEach(currentRecipe => {
+        //checking for a match in description
+        if (currentRecipe.searchInDescription(searchQuery) == true) {
+            currentRecipe.markAsPositiveResult();
+        } 
+      })
+
+}
 
         

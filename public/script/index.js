@@ -17,9 +17,11 @@ recipes.forEach(element => {
     globalRecipeCollection.push(currentRecipe);
 })
 
+console.log(globalRecipeCollection);
+
 /*Algo_V2*/
-const notFoundRecipeCollection = globalRecipeCollection;
-const foundRecipeCollection = [];
+var notFoundRecipeCollection = [];
+var foundRecipeCollection = globalRecipeCollection.slice();
 /*End of modification*/
 
 console.log(replaceDiacritics("éEàèIî"));
@@ -38,24 +40,14 @@ addAdvancedSearchEventListener("device");
 addAdvancedSearchEventListener("utensils");
 
 //Rendering default recipe grid.
-
+executeMainSearch();
 renderRecipeGrid();
 recalculateAdvancedSearchTags();
 
 //Listening to keyDown inputs on the main search field
 document.getElementById("main-search__text-input").addEventListener("keyup", () => {
-
-    //retrieving user input
-    let searchQuery = document.getElementById("main-search__text-input").value;
-    //If the Keyword is at least 3 characters long
-    if (searchQuery.length > 2){      
+        
     executeMainSearch();
-    }
-    else {
-        globalRecipeCollection.forEach(currentRecipe => {
-            currentRecipe.markAsPositiveResult();
-        });
-    }
     applyAllAdvancedSearchFilters();
     recalculateAdvancedSearchTags();
     renderRecipeGrid();
