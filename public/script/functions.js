@@ -76,8 +76,6 @@ function createActiveFilterInDOM(filter, filterType) {
         applyAllAdvancedSearchFilters();
         recalculateAdvancedSearchTags();
         renderRecipeGrid();
-        console.log("remaining active filters");
-        console.log(activeIngredientsFilters);
 
     })
     document.getElementById("search_tag_bar").appendChild(newActiveFilter);
@@ -196,7 +194,6 @@ function addMenuEventListener (filterValue,shrinkOrExpand) {
 }
 
 function addAdvancedSearchEventListener(filterType) {
-    console.log((filterType));
     document.getElementById("main-search-filter_"+filterType).addEventListener("keyup", () => {
         if (filterType == "ingredients") {
             generateUniqueIngredientsFilters();
@@ -270,12 +267,10 @@ function updateDisplayedRecipesByIngredients(filter) {
         if (found == false) {
             //mark recipe as 'not displayed'
                 recipe.markAsNegativeResult();
-                console.log("NEGATIVE");
-                console.log(foundRecipeCollection);
 
         }
         else {
-            console.log("POSITIVE");
+
 
         }
     })

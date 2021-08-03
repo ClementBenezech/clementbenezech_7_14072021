@@ -108,16 +108,10 @@ function createRecipe (recipeData) {
             //algo V2
             //Cut From notFound, put in found
 
-            
+            let removeIndex = notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id );  
 
-            let removeIndex = notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id );
-
-            notFoundRecipeCollection.splice( removeIndex, 1 );
-
-            foundRecipeCollection.push(this);
-
-            
-
+                notFoundRecipeCollection.splice( removeIndex, 1 );
+                foundRecipeCollection.push(this);
             
         },
 
@@ -126,16 +120,10 @@ function createRecipe (recipeData) {
             //Cut From foundCollection, put in notFoundCollection
 
                 let removeIndex = foundRecipeCollection.findIndex( recipe => recipe.id === this.id );
+  
                 foundRecipeCollection.splice( removeIndex, 1 );
                 notFoundRecipeCollection.push(this);
 
-             
-            
-            /*console.log("just put "+this.name+" in notFoundRecipeCOllection");
-            console.log(notFoundRecipeCollection);
-
-            console.log("just removed "+this.name+" from FoundRecipeCOllection");
-            console.log(foundRecipeCollection);*/
         }
     }
 }
