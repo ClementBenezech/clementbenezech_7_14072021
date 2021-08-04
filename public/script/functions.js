@@ -324,7 +324,7 @@ function executeMainSearch () {
   
         checkInTitles(searchQuery);
         checkInIngredients(searchQuery);
-        checkInDescriptions(searchQuery);           
+        checkInDescriptions(searchQuery);        
      }
      else {
          foundRecipeCollection = globalRecipeCollection.slice();
@@ -422,11 +422,11 @@ function checkInTitles (searchQuery) {
 
     globalRecipeCollection.forEach(currentRecipe => {
         //checking for a match in title
-        if (currentRecipe.searchInTitle(searchQuery) == true) {
+        if (currentRecipe.searchInTitle(searchQuery) === true) {
             currentRecipe.markAsPositiveResult();
         }
-        else {
-            currentRecipe.markAsNegativeResult();
+        else if (currentRecipe.searchInTitle(searchQuery) !== true) {
+            /*currentRecipe.markAsNegativeResult();*/
           }
       })
 

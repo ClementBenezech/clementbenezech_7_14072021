@@ -20,7 +20,7 @@ recipes.forEach(element => {
 console.log(globalRecipeCollection);
 
 /*Algo_V2*/
-var notFoundRecipeCollection = [];
+var notFoundRecipeCollection = globalRecipeCollection.slice();
 var foundRecipeCollection = globalRecipeCollection.slice();
 /*End of modification*/
 

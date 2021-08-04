@@ -107,21 +107,18 @@ function createRecipe (recipeData) {
         markAsPositiveResult: function () {
             //algo V2
             //Cut From notFound, put in found
-
-            let removeIndex = notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id );  
+                let removeIndex = notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id );  
 
                 notFoundRecipeCollection.splice( removeIndex, 1 );
+
                 foundRecipeCollection.push(this);
-            
         },
 
         markAsNegativeResult: function () {
             //algo V2
             //Cut From foundCollection, put in notFoundCollection
-
-                let removeIndex = foundRecipeCollection.findIndex( recipe => recipe.id === this.id );
   
-                foundRecipeCollection.splice( removeIndex, 1 );
+                foundRecipeCollection.splice(foundRecipeCollection.findIndex( recipe => recipe.id === this.id ), 1 );
                 notFoundRecipeCollection.push(this);
 
         }
