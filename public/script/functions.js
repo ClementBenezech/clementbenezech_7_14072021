@@ -315,7 +315,7 @@ function executeMainSearch () {
      let searchQuery = document.getElementById("main-search__text-input").value;
      //If the Keyword is at least 3 characters long
      if (searchQuery.length > 2){      
-        let searchQuery = document.getElementById("main-search__text-input").value;
+
         //emptying the grid.
         document.getElementById("recipes-container").innerHTML = "";
   
@@ -422,12 +422,15 @@ function checkInTitles (searchQuery) {
 
     globalRecipeCollection.forEach(currentRecipe => {
         //checking for a match in title
+        console.log("searchInTitle returns "+currentRecipe.searchInTitle(searchQuery)+" for "+searchQuery+" in "+currentRecipe.name);
         if (currentRecipe.searchInTitle(searchQuery) === true) {
             currentRecipe.markAsPositiveResult();
         }
-        else if (currentRecipe.searchInTitle(searchQuery) !== true) {
-            /*currentRecipe.markAsNegativeResult();*/
-          }
+        if (currentRecipe.searchInTitle(searchQuery) == false) {
+            
+            currentRecipe.markAsNegativeResult();
+        }
+        console.log(foundRecipeCollection);
       })
 
 }
