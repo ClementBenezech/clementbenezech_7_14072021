@@ -20,8 +20,8 @@ recipes.forEach(element => {
 console.log(globalRecipeCollection);
 
 /*Algo_V2*/
-var notFoundRecipeCollection = globalRecipeCollection.slice();
-var foundRecipeCollection = globalRecipeCollection.slice();
+var notFoundRecipeCollection = [];
+var foundRecipeCollection = [];
 /*End of modification*/
 
 console.log(replaceDiacritics("éEàèIî"));

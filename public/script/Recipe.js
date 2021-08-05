@@ -36,7 +36,7 @@ function createRecipe (recipeData) {
                     found = true;
                 }
             })
-            return found; 
+            return found;
                      
         },
         addToGrid: function () {
@@ -117,13 +117,19 @@ function createRecipe (recipeData) {
             //algo V2
             //Cut From foundCollection, put in notFoundCollection
   
-                if (foundRecipeCollection.find( recipe => recipe.id == this.id ) != undefined) {
-                    console.log("removing "+this.name+" from found");
-                    foundRecipeCollection.splice(foundRecipeCollection.indexOf( recipe => recipe.id == this.id ), 1 );
-                }
-                
-                notFoundRecipeCollection.push(this);
+            if (foundRecipeCollection.find( recipe => recipe.id == this.id ) != undefined) {
+                    foundRecipeCollection.splice(foundRecipeCollection.findIndex( recipe => recipe.id == this.id ), 1 );
+            }    
+            notFoundRecipeCollection.push(this);
 
-        }
+        },
+        /****** FOR TEST PURPOSE onlyRemoveFromFound: function () {
+            //algo V2
+            //Cut From foundCollection;
+
+                removeIndex = foundRecipeCollection.findIndex( recipe => recipe.id == this.id);          
+                foundRecipeCollection.splice(removeIndex, 1 );
+                notFoundRecipeCollection.push(this.id);
+        }*/
     }
 }

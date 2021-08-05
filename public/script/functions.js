@@ -97,7 +97,7 @@ function generateIngredientsFiltersInDOM() {
                     newActiveFilter = createActiveFilterInDOM(filter, "ingredients");
                 };
                 document.getElementById("main-search-filter_ingredients").value = "";
-
+                
                 updateDisplayedRecipesByIngredients(filter);
                 recalculateAdvancedSearchTags();
                 renderRecipeGrid();
@@ -229,7 +229,13 @@ function addAdvancedSearchEventListener(filterType) {
 
 function updateDisplayedRecipesByUtensils(filter) {
 
-    currentRecipeCollection = foundRecipeCollection.slice();
+    let currentRecipeCollection = []; 
+    
+    foundRecipeCollection.forEach(recipe => {
+        currentRecipeCollection.push(recipe);
+    } )
+
+
 
     currentRecipeCollection.forEach( recipe => {
         let found = false;
@@ -252,7 +258,13 @@ function updateDisplayedRecipesByUtensils(filter) {
 
 function updateDisplayedRecipesByIngredients(filter) {
     
-    currentRecipeCollection = foundRecipeCollection.slice();
+    let currentRecipeCollection = []; 
+    
+    foundRecipeCollection.forEach(recipe => {
+        currentRecipeCollection.push(recipe);
+    } )
+
+    console.log(currentRecipeCollection);
 
     currentRecipeCollection.forEach( recipe => {
         let found = false;
@@ -267,7 +279,6 @@ function updateDisplayedRecipesByIngredients(filter) {
         if (found == false) {
             //mark recipe as 'not displayed'
                 recipe.markAsNegativeResult();
-
         }
         else {
 
@@ -278,7 +289,11 @@ function updateDisplayedRecipesByIngredients(filter) {
 
 function updateDisplayedRecipesByDevice(filter) {
 
-    currentRecipeCollection = foundRecipeCollection.slice();
+    let currentRecipeCollection = []; 
+    
+    foundRecipeCollection.forEach(recipe => {
+        currentRecipeCollection.push(recipe);
+    } )
 
     currentRecipeCollection.forEach( recipe => {
         let found = false;
@@ -291,8 +306,7 @@ function updateDisplayedRecipesByDevice(filter) {
         //If found flag is true
         if (found == false) {
             //mark recipe as 'not displayed'
-            recipe.markAsNegativeResult();
-            
+            recipe.markAsNegativeResult();  
         }
     })
 }
