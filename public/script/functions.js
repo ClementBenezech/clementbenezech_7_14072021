@@ -1,6 +1,4 @@
-/*Algo V2 things to do
-
-initialize notfoundRecipeCollection with globalRecipeCollection.
+/*Algo V2 modifications
 
 replace all display globalRecipeCollection references by:
     foundRecipeCollection for display.
@@ -264,7 +262,6 @@ function updateDisplayedRecipesByIngredients(filter) {
         currentRecipeCollection.push(recipe);
     } )
 
-    console.log(currentRecipeCollection);
 
     currentRecipeCollection.forEach( recipe => {
         let found = false;
@@ -327,14 +324,12 @@ function executeMainSearch () {
 
      //retrieving user input
      let searchQuery = document.getElementById("main-search__text-input").value;
+
      //If the Keyword is at least 3 characters long
      if (searchQuery.length > 2){      
 
         //emptying the grid.
         document.getElementById("recipes-container").innerHTML = "";
-  
-        notFoundRecipeCollection = [];
-        foundRecipeCollection = [];
   
         checkInTitles(searchQuery);
         checkInIngredients(searchQuery);
@@ -436,15 +431,12 @@ function checkInTitles (searchQuery) {
 
     globalRecipeCollection.forEach(currentRecipe => {
         //checking for a match in title
-        console.log("searchInTitle returns "+currentRecipe.searchInTitle(searchQuery)+" for "+searchQuery+" in "+currentRecipe.name);
-        if (currentRecipe.searchInTitle(searchQuery) === true) {
+        if (currentRecipe.searchInTitle(searchQuery)) {
             currentRecipe.markAsPositiveResult();
         }
-        if (currentRecipe.searchInTitle(searchQuery) == false) {
-            
+        else {
             currentRecipe.markAsNegativeResult();
         }
-        console.log(foundRecipeCollection);
       })
 
 }

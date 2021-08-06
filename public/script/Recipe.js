@@ -31,12 +31,15 @@ function createRecipe (recipeData) {
             //Looking for main search input in the ingredients
             let found = false
             this.ingredients.forEach(element => {
-                
-                if (element.ingredient.toLowerCase().includes(whatYoureLookingFor.toLowerCase())) {
+
+                if (replaceDiacritics(element.ingredient.toLowerCase()).includes(replaceDiacritics(whatYoureLookingFor.toLowerCase()))) {
+
                     found = true;
+                    
                 }
             })
             return found;
+
                      
         },
         addToGrid: function () {
@@ -107,29 +110,29 @@ function createRecipe (recipeData) {
         markAsPositiveResult: function () {
             //algo V2
             //Cut From notFound, put in found
-                  
+                let removeIndex = notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id );
+                if (removeIndex >= 0) {
+                console.log("Removing recipe with index "+removeIndex+" From not found recipes");
+                notFoundRecipeCollection.splice(removeIndex , 1 );
+                }
 
-                notFoundRecipeCollection.splice( notFoundRecipeCollection.findIndex( recipe => recipe.id === this.id ), 1 );
                 foundRecipeCollection.push(this);
+
         },
 
         markAsNegativeResult: function () {
             //algo V2
             //Cut From foundCollection, put in notFoundCollection
+
+            if (this.id != undefined) {
+                result = notFoundRecipeCollection.push(this);
+            }
   
             if (foundRecipeCollection.find( recipe => recipe.id == this.id ) != undefined) {
                     foundRecipeCollection.splice(foundRecipeCollection.findIndex( recipe => recipe.id == this.id ), 1 );
-            }    
-            notFoundRecipeCollection.push(this);
+            }
+            
 
         },
-        /****** FOR TEST PURPOSE onlyRemoveFromFound: function () {
-            //algo V2
-            //Cut From foundCollection;
-
-                removeIndex = foundRecipeCollection.findIndex( recipe => recipe.id == this.id);          
-                foundRecipeCollection.splice(removeIndex, 1 );
-                notFoundRecipeCollection.push(this.id);
-        }*/
     }
 }

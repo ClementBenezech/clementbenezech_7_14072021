@@ -47,6 +47,8 @@ recalculateAdvancedSearchTags();
 //Listening to keyDown inputs on the main search field
 document.getElementById("main-search__text-input").addEventListener("keyup", () => {
         
+    notFoundRecipeCollection = [];
+    foundRecipeCollection = [];
     executeMainSearch();
     applyAllAdvancedSearchFilters();
     recalculateAdvancedSearchTags();
