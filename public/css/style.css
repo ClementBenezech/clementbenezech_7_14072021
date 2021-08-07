@@ -111,8 +111,12 @@ body {
     font-size: 2vh;
     width: max-content;
     border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.904);
     margin: 0.5vh;
     border-radius: 0.3vh;
+    color: black;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px black;
   }
 }
 .search-filters__filters-container--visible {
@@ -207,6 +211,7 @@ body {
   .recipes-container__element {
     width: 80vw;
     height: max-content;
+    border-radius: 1vh;
   }
 }
 .recipes-container__element__image {
@@ -229,9 +234,12 @@ body {
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container {
-    height: 10vh;
+    flex-wrap: wrap;
+    height: auto;
     background-color: black;
     align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 1vh;
   }
 }
 .recipes-container__element__labels-container__title {
@@ -242,7 +250,8 @@ body {
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__title {
-    font-size: 3vh;
+    width: 100%;
+    font-size: 2.5vh;
     color: white;
     text-align: center;
     height: auto;
@@ -256,9 +265,12 @@ body {
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__cooking-time {
-    font-size: 3vh;
+    width: 100%;
+    font-size: 2.5vh;
     color: white;
     height: auto;
+    text-align: center;
+    color: #68d9a4;
   }
 }
 .recipes-container__element__labels-container__cooking-time::before {
@@ -297,6 +309,8 @@ body {
     height: 3vh;
     padding: 1vh;
     margin: 0.3vw 0.3vw;
+    border-radius: 1.5vh;
+    box-shadow: 1px 1px 2px black;
   }
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name {
@@ -308,6 +322,7 @@ body {
   .recipes-container__element__labels-container__ingredients-container__ingredient-name {
     font-size: 2vh;
     height: 1vh;
+    color: #3281f5;
   }
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-name::after {
@@ -328,8 +343,10 @@ body {
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__description {
-    width: 80vw;
-    height: 40%;
+    width: 100%;
+    height: auto;
+    padding: 1vh;
+    text-align: justify;
   }
 }
 
