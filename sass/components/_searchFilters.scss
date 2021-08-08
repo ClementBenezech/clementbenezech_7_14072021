@@ -2,7 +2,7 @@
     &__container {
         width: 80vw;
         height: 10vh;
-        margin-top: 5vh;
+        /*margin-top: 5vh;*/
         display: flex;
         flex-direction:row;
         justify-content: flex-start;
@@ -48,12 +48,13 @@
                 font-size: 2vh;
                 width:max-content;
                 border: 1px solid white;
-                background-color:rgba(255, 255, 255, 0.904);
+                background-color:white;
                 margin: 0.5vh;
                 border-radius: 0.3vh;
                 color:black;
                 font-weight: bold;
                 box-shadow: 2px 2px 4px black;
+                background: rgba(255, 255, 255, 0.925);
             }
 
         }

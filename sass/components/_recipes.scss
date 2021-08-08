@@ -34,7 +34,7 @@
             background-color: lightgrey;
             height: 15vw;
             width:100%;
-            content: url("../images/genericfood.jpg");
+            background-image: url("../images/genericfood.jpg");
             object-fit: cover;
             @include mobile-only {
                 height: 30vh;
@@ -73,6 +73,7 @@
                 height: 3vw;
                 font-weight: bold;
                 margin: 0.5vw 1vw 0 1vw;
+                font-size: 1vw;
                 @include mobile-only {
                     width:100%;
                     font-size: 2.5vh;
@@ -89,9 +90,10 @@
                 }
             }
             &__ingredients-container {
-                width: 55%;
+                width: 50%;
                 font-size: 0.7vw;
-                height: 5vh;
+                height: 10vh;
+                margin: 1vh;
                 @include mobile-only {
                     width: 80vw;
                     display:flex;
@@ -99,7 +101,7 @@
                     flex-wrap:wrap;
                     height: auto;
                     justify-content: space-around;
-                    margin: 1vh;
+                    
                 }
                 &__ingredient-container {
                     display:flex;
@@ -145,14 +147,16 @@
             }
             &__description {
                 width: 35%;
-                height: 10vw;
+                height: auto;
                 overflow:hidden;
                 margin: 0.5vw 1vw;
+                font-size:0.8vw;
                 @include mobile-only {
                     width: 100%;
                     height: auto;
                     padding: 1vh;
                     text-align:justify;
+                    font-size:3vh;
                 }
             }
         }

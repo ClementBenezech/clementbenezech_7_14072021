@@ -51,7 +51,7 @@ body {
 .search-filters__container {
   width: 80vw;
   height: 10vh;
-  margin-top: 5vh;
+  /*margin-top: 5vh;*/
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -111,12 +111,13 @@ body {
     font-size: 2vh;
     width: max-content;
     border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.904);
+    background-color: white;
     margin: 0.5vh;
     border-radius: 0.3vh;
     color: black;
     font-weight: bold;
     box-shadow: 2px 2px 4px black;
+    background: rgba(255, 255, 255, 0.925);
   }
 }
 .search-filters__filters-container--visible {
@@ -218,7 +219,7 @@ body {
   background-color: lightgrey;
   height: 15vw;
   width: 100%;
-  content: url("../images/genericfood.jpg");
+  background-image: url("../images/genericfood.jpg");
   object-fit: cover;
 }
 @media screen and (max-width: 1080px) {
@@ -262,6 +263,7 @@ body {
   height: 3vw;
   font-weight: bold;
   margin: 0.5vw 1vw 0 1vw;
+  font-size: 1vw;
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__cooking-time {
@@ -280,9 +282,10 @@ body {
   font-weight: normal;
 }
 .recipes-container__element__labels-container__ingredients-container {
-  width: 55%;
+  width: 50%;
   font-size: 0.7vw;
-  height: 5vh;
+  height: 10vh;
+  margin: 1vh;
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__ingredients-container {
@@ -292,7 +295,6 @@ body {
     flex-wrap: wrap;
     height: auto;
     justify-content: space-around;
-    margin: 1vh;
   }
 }
 .recipes-container__element__labels-container__ingredients-container__ingredient-container {
@@ -337,9 +339,10 @@ body {
 }
 .recipes-container__element__labels-container__description {
   width: 35%;
-  height: 10vw;
+  height: auto;
   overflow: hidden;
   margin: 0.5vw 1vw;
+  font-size: 0.8vw;
 }
 @media screen and (max-width: 1080px) {
   .recipes-container__element__labels-container__description {
@@ -347,6 +350,7 @@ body {
     height: auto;
     padding: 1vh;
     text-align: justify;
+    font-size: 3vh;
   }
 }
 

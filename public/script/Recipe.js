@@ -46,8 +46,10 @@ function createRecipe (recipeData) {
             recipeContainer = document.createElement("div");
             recipeContainer.className = "recipes-container__element";
 
-            recipeImage = document.createElement("div");
+            recipeImage = document.createElement("img");
             recipeImage.className = "recipes-container__element__image";
+            recipeImage.src = "public/images/"+this.id+".jpg";
+            recipeImage.alt = "Photo d'une recette de "+this.name;
 
             recipeLabelsContainer = document.createElement("div");
             recipeLabelsContainer.className = "recipes-container__element__labels-container";
@@ -65,7 +67,7 @@ function createRecipe (recipeData) {
             
             recipeDescription = document.createElement("div");
             recipeDescription.className = "recipes-container__element__labels-container__description";
-            recipeDescription.innerHTML = this.description;
+            recipeDescription.innerHTML = this.description.substring(0, 200)+"...";
 
             document.getElementById("recipes-container").appendChild(recipeContainer);
             recipeContainer.appendChild(recipeImage);
