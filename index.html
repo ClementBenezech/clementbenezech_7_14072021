@@ -18,11 +18,11 @@
 <body>
 
     <header class = "header">
-        <img class = "header__logo" src = "public/images/logo.png">
+        <img class = "header__logo" src = "public/images/logo.png" alt ="Logo les petits plats">
     </header>
 
     <div class = "main-search">
-        <input id = "main-search__text-input" class = "main-search__text-input" type="text" placeholder ="Recherchez une recette, un ingrédient, un ustensile..."></input>
+        <input id = "main-search__text-input" class = "main-search__text-input" type="text" placeholder ="Recherchez une recette, un ingrédient, un ustensile...">
         <button class = "main-search__search-button"><i class="fas fa-search"></i></button>
     </div>
 
@@ -35,7 +35,7 @@
         <div class = "search-filters__container__element search-filters__container__element--ingredients">
             
                 <div  class = "search-filters__search-container">
-                    <input id = "main-search-filter_ingredients" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ingredients"></input>
+                    <input id = "main-search-filter_ingredients" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ingredients">
                     <button id = "expand_ingredients_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
                     <button id = "shrink_ingredients_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
                 </div>         
@@ -49,7 +49,7 @@
         <div class = "search-filters__container__element search-filters__container__element--device">
             
                 <div class = "search-filters__search-container">
-                    <input id = "main-search-filter_device" class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareil"></input>
+                    <input id = "main-search-filter_device" class = "search-filters__search-container__text-input" type = "text" placeholder = "Appareil">
                     <button id = "expand_device_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
                     <button id = "shrink_device_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
                 </div>    
@@ -61,7 +61,7 @@
         <div class = "search-filters__container__element search-filters__container__element--utensils">
             
                 <div class = "search-filters__search-container">
-                    <input id = "main-search-filter_utensils" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ustensiles"></input>
+                    <input id = "main-search-filter_utensils" class = "search-filters__search-container__text-input" type = "text" placeholder = "Ustensiles">
                     <button id = "expand_utensils_menu" class = "search-filters__search-container__expand-arrow search-filters__search-container__expand-arrow--visible"><i class="fas fa-chevron-down"></i></button>
                     <button id = "shrink_utensils_menu" class = "search-filters__search-container__shrink-arrow search-filters__search-container__shrink-arrow--hidden"><i class="fas fa-chevron-up"></i></button>            
                 </div>     
@@ -75,7 +75,8 @@
 
 
         
-    </section>
+    </div>
+    <script src="public/script/index.js"></script>
 </body>
-<script src="public/script/index.js"></script>
+
 </html>
